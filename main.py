@@ -36,6 +36,20 @@ class Matrix:
     # for more info: https://mathworld.wolfram.com/NonsingularMatrix.html
     def inverse(self):
         n = len(self.mat)
+
+        # Handling the 2x2 matrix inverse
+        if n == 2:
+            det = self.mat[0][0]*self.mat[1][1] - self.mat[0][1]*self.mat[1][0]
+            new_mat = [
+                [self.mat[1][1], -self.mat[0][1]],
+                [-self.mat[1][0], self.mat[0][0]]
+            ]
+            for i in range(n):
+                for j in range(n):
+                    new_mat[i][j] /= det
+            self.mat = new_mat
+            return
+
         aug_mat = self.add_identity_matrix()
 
         for i in range(n):
@@ -56,10 +70,8 @@ class Matrix:
 
 if __name__ == '__main__':
     example = [
-        [6, 4, 4, 1],
-        [4, 6, 1, 4],
-        [4, 1, 6, 4],
-        [1, 4, 4, 6]
+        [2, 4],
+        [-4, 10]
     ]
 
     matrix = Matrix(example)
