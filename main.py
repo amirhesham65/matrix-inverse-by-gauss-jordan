@@ -9,7 +9,7 @@ class Matrix:
     def print(self):
         for i in self.mat:
             for j in i:
-                print(int(j), end=" ")
+                print(j, end=" ")
             print('')
 
     # Adding the identity matrix to the original matrix from the right (Augmenting the matrix)
@@ -56,9 +56,10 @@ class Matrix:
 
 if __name__ == '__main__':
     example = [
-        [1, 2, 3],
-        [0, 1, 4],
-        [5, 6, 0]
+        [6, 4, 4, 1],
+        [4, 6, 1, 4],
+        [4, 1, 6, 4],
+        [1, 4, 4, 6]
     ]
 
     matrix = Matrix(example)
