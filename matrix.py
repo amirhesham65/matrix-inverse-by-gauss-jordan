@@ -25,7 +25,7 @@ class Matrix:
         n = len(self.mat)
         new_mat = []
         for i in range(n):
-            new_mat.append(self.mat[i][3:])
+            new_mat.append(self.mat[i][n:])
         self.mat = new_mat
 
     # Inverting the matrix
